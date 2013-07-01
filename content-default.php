@@ -1,0 +1,13 @@
+<?php
+/**
+ * The template for displaying the content all default pages where no template is selected.
+ */
+?>
+
+					<?php if(has_post_thumbnail()) { the_post_thumbnail(); } ?>
+                    <header>
+                        <h1><?php the_title(); ?></h1>
+                    </header>
+
+					<?php the_content(); ?>
+

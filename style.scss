@@ -1,0 +1,1154 @@
+/*  
+Theme Name: AYM
+Theme URI: http://www.a-y-m.org.uk/
+Description: AYM Website 2013
+Version: 1.0
+Author: Dan Moe & Ruyman Rodriguez
+Author URI: http://www.design-culture.co.uk/
+*/
+
+/*************************************************************************
+
+	AWARDS FOR YOUNG MUSICIANS
+	
+	Developed by Dan Moe & Ruyman Rodriguez 
+	for Design Culture - http://www.design-culture.co.uk/ (c) 2013
+	
+	MODULE: 	style.scss
+	PURPOSE:	main site styles
+	
+*************************************************************************/
+
+/* CODE MAP
+-------------------------------------------------------------------------
+
+	^1	IMPORTS 
+	
+	^2	SASS VARIABLES 
+	
+	^3	GLOBAL CLASSES 
+	
+	^4	STRUCTURE
+	
+	    ^4a CORE
+	        ^4a1 masthead
+	        ^4a2 navigation
+	        ^4a3 footer
+	        ^4a4 sitemap
+	        
+	    ^4b HOME
+      ^4c PAGE
+      ^4d NEWS
+      ^4e GALLERY
+      ^4f CONTACT
+
+  ^5  TEXT
+
+
+/*	^1 IMPORTS
+*************************************************************************/
+
+	@import url("css/reset.css");
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,600italic,700italic);
+	
+
+/* ^2 SASS VARIABLES
+*************************************************************************/
+	
+	// Colours
+	$Black : #000;
+	$DarkBlack : lighten($Black, 13%);
+  $MediumBlack : lighten($Black, 20%);
+  $MediumBlackLight : lighten($Black, 28%);
+  $LightBlack : lighten($Black, 80%);
+  $UltraLightBlack : lighten($Black, 95%);
+  $White : #FFF;
+  $Orange : #FF6600;
+  $Purple : #6C276A;
+  $Biege : #DAD6CA;
+  
+  // Globals
+  $GlobalWidth : 1020px;
+  $StickyHeight : 200px;
+  $GlobalPadding : 20px;
+  $GlobalLinkSize : 0.7em;
+  
+  $DarkDottedBorder : 1px dotted $DarkBlack;
+  
+  // Fonts
+  @mixin serifFont {
+    font-family : "Century", Georgia, "Times New Roman", Times, serif;
+  }
+
+  @mixin sansSerifFont {
+    font-family : "Open Sans", Helvetica, Arial, sans-serif;
+  }
+
+  @mixin formFields {
+    height : 15px;
+    padding : 5px ;
+    border : 0;
+    @include sansSerifFont;
+    font-size : $GlobalLinkSize;
+  }
+  
+  @mixin arrowLinks {
+    height : 25px;
+    width : 25px;
+    float : left;
+    border : 0;
+    background : $Orange url(img/sprite.png) no-repeat -83px -74px;
+      &:hover {
+        background-color : $LightBlack;
+      }  
+  }
+  
+  @mixin resetSpacing {
+    padding : 0;
+    margin : 0;
+  }
+  
+  @mixin bringToFront {
+    position : relative;
+    z-index : 10;
+  }
+
+/* ^3	GLOBAL CLASSES
+*************************************************************************/
+
+	::-moz-selection {
+		background : #b3d4fc;
+		text-shadow : none;
+	}
+	
+	::selection {
+		background : #b3d4fc;
+		text-shadow : none;
+	}
+	
+	.clearfix:before,
+	.clearfix:after {
+		content : " ";
+		display : table;
+	}
+	
+	.clearfix:after {
+		clear : both;
+	}
+	
+	.oldbrowser {
+		padding : 0.4em 0;
+    margin : 0;
+		text-align : center;
+    background : $Orange;
+    color : $White;
+	}
+	
+	.oldbrowser a {
+	  color : $Black;
+	  &:hover {
+	    color : $LightBlack;
+	  }
+	}
+	
+	hr {
+		display : block;
+		height : 1px;
+		border : 0;
+		border-top : 1px solid $MediumBlack;
+		margin : 1em 0;
+		padding : 0;
+	}
+	
+	a {
+	  text-decoration : none;
+	}
+
+  li a {
+    transition : all 0.2s ease;
+  }
+	
+	.hide {
+	  display : none;
+	}
+	
+  button[type=submit] {
+    @include arrowLinks;
+  }
+      
+  .single #MainContent p,
+  .single #ThumbLinks a h4:last-child {
+    color : $White;
+  }
+  
+  .single #ThumbLinks {
+    border-top-color : $LightBlack;
+  }
+
+  .news #wrapper,
+  .single #wrapper,
+  .gallery #wrapper {
+    background : $MediumBlackLight;
+  }
+
+ .highlight {
+   color : $Orange;
+ }
+ 
+  // helpers (DELETE THESE)
+  .inner {
+    padding: $GlobalPadding;
+    border : 1px solid green;
+  }
+
+  img {
+    display : block;
+    background : gray;
+  }
+
+/* ^4	STRUCTURE
+*************************************************************************/
+
+// ^4a core
+  html, body {
+    height : 100%;
+    background : $UltraLightBlack;
+    @include sansSerifFont;
+  }
+  
+  #wrapper {
+    height : 100%;
+    min-height: 100%;
+    height: auto !important;
+    margin: 0 auto (-$StickyHeight);
+    width : $GlobalWidth; 
+    background : $White;
+    position : relative;
+  }
+  
+  #content {
+    min-height : 400px; // might need removing to resolve sidebar height conflicts
+    position : relative;
+    z-index : 1;
+  }
+  
+  #push {
+    height : $StickyHeight;
+  }
+  
+  // ^4a1 masthead
+  #masthead {
+    height : 125px;
+    background : $White;
+    @include bringToFront;
+    
+    h1 {
+        height : 80px;
+        width : 190px;
+        padding : 10px 20px;
+        margin : 0;
+        float : left;
+        
+        a {
+            display : block;
+            height : 80px;
+            width : 190px;
+            background : url(img/sprite.png) no-repeat 0px 10px;
+        }        
+     }
+  }
+
+  #header {
+    height : 100px;
+    width : 790px;
+    float : right;
+  }
+  
+  #smallLinks {
+    height : 30px;
+    padding-right : 10px;
+    
+    ul {
+      list-style : none;
+      @include resetSpacing;
+    }
+    
+    > ul {
+      float : right;
+
+      > li {
+        display : inline;
+        height : 10px;
+        padding : 10px;
+        font-size : $GlobalLinkSize;
+        font-weight: 600;
+        border-left : 1px dotted $MediumBlack;
+        color : $MediumBlack;
+        
+        a {
+          color : $MediumBlack;
+          &:hover {
+            color : $Orange;
+          }
+        }
+      }
+    }    
+  }
+
+  #socialLinks {
+    display : inline-block;
+    position : relative;
+    top : 6px;
+
+    li {
+      height : 20px;
+      width : 20px;
+      float : left;
+      margin-left : 5px;
+      
+      a {
+        display : block;
+        height : 20px;
+        width : 20px;
+      }
+    }
+  }
+  
+  .linkedin {
+    background : url(img/sprite.png) no-repeat -10px -77px;
+    &:hover {
+      background-position :  -10px -97px;
+    }
+  }
+
+  .twitter {
+    background : url(img/sprite.png) no-repeat -33px -78px;
+    &:hover {
+      background-position :  -33px -98px;
+    }
+  }
+
+  .facebook {
+    background : url(img/sprite.png) no-repeat -52px -77px;
+    &:hover {
+      background-position :  -52px -97px;
+    }
+  }
+  
+  #search-form {
+    width : 220px;
+    float : right;
+    padding-top : $GlobalPadding;
+
+    input[type=text] {
+      @include formFields;
+      width : 165px;
+      float : left;
+      background : $UltraLightBlack;
+    }
+  }
+  
+  // ^4a2 navigation
+  #nav {
+    height : 25px;
+    background : $DarkBlack;
+    clear : both;
+    
+    input[type=text] {
+      width : 200px;
+      float : left;
+      background : $MediumBlackLight;
+      color : $White;
+      @include formFields;
+      padding-left : 20px;
+    }
+    
+    > div > ul {
+      float : right;
+      @include resetSpacing;
+
+      > li {
+          font-size : $GlobalLinkSize;
+          float : left;
+          @include resetSpacing;
+          //position : relative;
+
+          > a {
+            display : inline-block;
+            margin : 0;
+            padding : 5px 1em;
+            height : 15px;
+          }
+          
+          > ul {
+            position : absolute;
+            background : $DarkBlack;
+            background : rgba(0,0,0,0.7);
+            @include resetSpacing;
+            padding : 10px 0;
+            line-height : 1.8em;
+            display : none;
+            
+            li a {
+              padding : 5px 1em;
+            }
+          } 
+       }
+     } 
+
+    .drop-down:after {
+      color : $Orange;
+      content : "\203A";
+      display : inline-block;
+      position : relative;
+      right : 8px;
+      top : 0;
+      transform:rotate(90deg);
+      -ms-transform:rotate(90deg); /* IE 9 */
+      -webkit-transform:rotate(90deg); /* Safari and Chrome */      
+    }
+
+    a {
+      color : $White;
+      &:hover {
+        color : $Orange;
+      } 
+      
+    }
+    
+    /*
+    // uncomment to reveal without jQuery
+    ul li:hover ul {
+      display : block;
+    }
+    */
+  }
+
+  .angels a {
+    background : $Orange;
+    &:hover {
+        color : $DarkBlack !important;
+    }
+  }
+  
+  // ^4a3 footer
+  #footer {
+    height : $StickyHeight;
+    width : $GlobalWidth; 
+    margin : auto;
+    background : $Orange;
+    @include bringToFront;
+        
+    nav {
+      height : 175px;
+    }
+    
+    section {
+      height : 20px;
+      padding : 5px 0 0 1.75em;
+      background : $DarkBlack;
+      color : $White; 
+      
+      a {
+        color : $White; 
+        &:hover {
+          color : $Orange;
+        }      } 
+    } 
+    
+    h6 {
+      float : left;
+    } 
+    
+    p {
+      font-size : $GlobalLinkSize - 0.1;
+      margin : 0 0 10px 0 ;
+      color : $White;
+      
+      a {
+        color : $White;
+        &:hover {
+          color : $Black;
+        }
+      }
+    }
+  }
+  
+  // ^4a4 sitemap
+  #sitemap {
+    @include resetSpacing;
+    padding : 15px 20px 0;
+    float : left;
+    
+    li a {
+        padding : 0 1.5em;
+        color : $White;
+        &:hover {
+          color : $Black;
+        }
+    } 
+    
+    > li:first-child a,
+    > li:first-child ul {
+      padding-left : 0;
+    }
+
+    ul + ul {
+       padding-top : 23px !important;
+    }   
+  }
+  
+  #sitemap > li {
+    display : inline-block;
+    float : left;
+    height : 160px;
+    margin : 0;
+    font-size : $GlobalLinkSize - 0.1;
+    border-right : 1px dotted $White;
+
+    &:last-child {
+      border-right : none;
+    }
+  }
+
+  #sitemap > li > a {
+    font-weight: 600;
+    color : $White;
+  }
+  
+  #sitemap > li ul {
+    @include resetSpacing;
+  }
+  
+  #sitemap > li > ul > li  {
+    clear : both;
+    padding : 0;
+  }  
+  
+  .right-column {
+    width : 205px;
+    float : right; 
+    padding : 0 0.7em;
+  }
+
+  #footer nav .right-column {
+    border-left : 1px dotted $White;
+    margin-top : 15px ;
+    height : 160px;
+  }
+
+  /* PAGE SPECIFIC */
+  
+  // ^4b HOME
+  .home #wrapper {
+    background : $MediumBlack;
+  }
+  
+  .home #MainContent {
+    padding-top : $GlobalPadding;
+    width : $GlobalWidth - $GlobalPadding * 2 ;
+  }
+  
+  .home #content footer {
+    padding : $GlobalPadding;
+    
+    h4 {
+      color : $White;
+      margin-bottom : 10px;
+    }
+    
+    img {
+      text-align : center;
+    }
+  }
+
+  #Slider {
+    height : 365px;
+    position : relative;
+    
+    .slide {
+      height : 365px;
+    
+      .slide-text {
+        height : 285px;
+        width : 40%;
+        float : right;
+        padding : 40px ;
+        position : relative;
+        z-index : 1;
+        
+        p {
+          @include serifFont;
+          font-size: 1.6em;
+          font-weight : 100;
+          display : inline;
+          color : $DarkBlack;
+          
+          &:first-child {
+            color : $Orange;
+          }
+        }  
+      }
+      
+      img {
+        position : absolute;
+      }
+        
+      .darkBG p {
+        color : $White;
+      }   
+           
+    }    
+  }
+  
+  .featured-posts article {
+    width : 292px;
+    padding : 0 20px 0 0 ;
+    float : left;
+    margin-right : $GlobalPadding;
+    
+    border-right: 1px dotted $White;
+    
+    &:last-child {
+      border-right: none;
+      margin-right : 0;
+    }
+
+    p {
+      color : $White;
+      font-size : 0.75em;
+    }
+
+    img {
+      float : left;
+      margin-right : 20px;
+    }
+          
+  }
+
+  #TopContent {
+      background: $DarkBlack;
+      padding: $GlobalPadding;
+
+      article {
+        position : relative;
+        margin-top : 25px;
+      }
+      
+      h2 {
+        position : absolute;
+        top : -30px;
+      }
+      
+      p {
+        margin-top : 0;
+      }
+  }
+  
+  #BottomContent {
+      padding: $GlobalPadding;
+  }
+  
+  
+  /* ^4c PAGE */
+  .sidebar-panel {
+    position : absolute;
+    top : 0;
+    height : 100%;
+  }
+  
+  .grey {
+    background : $MediumBlack;
+  }
+  
+  .white {
+    background : $White;
+  }
+  
+  .left {
+    left : 0;
+    width : 250px;
+  }
+  
+  .right {
+    right : 0;
+    width : 230px;
+  }
+  
+  #MainContent {
+    width : 480px;
+    padding : 0 $GlobalPadding;
+    float : left;
+    
+    header {
+      padding-top : $GlobalPadding ;
+      margin-bottom : $GlobalPadding;
+    
+      h1 {
+        padding-top : $GlobalPadding;
+      }
+    }
+  }
+  
+  .sidebar {
+    padding : $GlobalPadding * 2 $GlobalPadding;
+  }
+  
+  #LeftSidebar {
+    width : 210px;
+    float : left;
+    
+    li a {
+        color : $White;
+    }
+  }
+  
+  #RightSidebar {
+    width : 190px;
+    float : right;
+    
+    li {
+      margin-bottom : 0.5em;
+      a {
+        color : $DarkBlack;
+      }
+    }
+  }
+  
+  .sidebar .menu {
+      border-bottom: 1px dotted $White;
+  }
+
+  #LeftInfo { 
+      width : 210px;  
+      height: 130px;  
+      padding : $GlobalPadding; 
+              
+      position:absolute;
+      z-index : 5;
+      bottom : $StickyHeight ;
+
+      @include serifFont;
+      font-size: 1.3em; 
+      
+      p {
+        color : $White;
+      }
+   }
+   
+   .widget {
+     margin-bottom : $GlobalPadding;
+     padding-bottom : $GlobalPadding;
+     border-bottom : $DarkDottedBorder;
+     
+     h2 a {
+       color : $DarkBlack;
+       &:hover {
+         text-decoration : underline;
+       }
+     }
+     
+     ul {
+       padding : 0 !important;
+     }
+     
+     &:last-child {
+       border-bottom : none;
+     }
+   }
+   
+   .promo {
+     background : $Biege;
+     
+     h4 {
+       color : $DarkBlack;
+       padding : 0 10px;
+     }
+     
+     &:hover {
+       background : $LightBlack;
+     }
+   }
+   
+   #ThumbLinks {
+     margin-top : $GlobalPadding;
+     padding-top : $GlobalPadding;
+     border-top : $DarkDottedBorder;
+     
+     a {
+       display : inline-block;
+       margin-right : $GlobalPadding * 2;
+       padding-bottom : 10px;
+       
+       &:last-child {
+         margin-right : 0;
+       }
+       
+       h4:last-child {
+         color : $DarkBlack;
+       }
+       
+       &:hover {
+         border-bottom :  1px solid $Orange;
+       }
+     }
+   }
+   
+   /* ^4d NEWS */  
+  .news #MainContent {
+
+    article {
+      position: relative;
+      margin-bottom: 20px;
+      padding-left: 170px;
+
+      img {
+        position:absolute;
+        top:0;
+        left:0;
+      }
+      
+      .itemNews {
+        position:relative;
+        border-bottom: 1px dotted $White;
+        min-height: 100px;
+      }
+      
+      h3 {
+        @include sansSerifFont;
+        font-size : 0.8em; 
+      }
+      
+      p {
+        font-size:0.7em;
+        margin:0 0 0.8em 0;
+        color : $White;
+        
+        .news-date {
+          font-size:0.7em;
+          margin-bottom:0.4em;
+        }
+      }
+      
+      a {
+        
+        span {
+          display:none;
+        }
+        
+        &.readMore {
+          position:absolute;
+          bottom:-1px;
+          right:0;
+          height:20px;
+          width:20px;
+          background: $Orange url(img/sprite.png) no-repeat -85px -76px;
+          &:hover {
+            background-color : $LightBlack;
+          }
+        }
+      }     
+    }
+    
+    .no-image {
+      padding-left: 0;
+      border-bottom: 1px dotted $White;
+    }
+  }
+
+  #Pagination {
+      color: $Orange;
+      p {
+          float:right;
+          font-size:0.7em;
+          a {
+              color: $White;
+              &:hover {
+                color: $Orange;
+              }
+          }
+          span {
+              color: $White;
+          }
+      }
+  }
+  
+  .single #MainContent {
+    header {
+      padding-top : 0 ;
+    }
+  }
+  
+  /* ^4e GALLERY */
+ 
+  .gallery #MainContent {
+    width : 730px;
+  }
+
+  #Filter {
+      font-size:0.8em;
+      color: $Orange;
+      margin-bottom: 20px;
+      
+      a {
+          color: $White;
+          &:hover {
+              color:$Orange;
+          }
+          &:not(:last-of-type):after {
+              content: " / ";
+              padding: 0 3px;
+          }
+          &:first-of-type {
+              padding-left: 6px;
+          }
+      }
+      
+  }
+
+  #ItemsGallery {
+    
+      article {
+        margin : 0 $GlobalPadding 0 0;
+      
+          a {
+              display: inline-block;
+              margin: 0;
+              padding: 0;
+              @include sansSerifFont;
+              
+              /*&:hover img {
+                  -webkit-transition: all 350ms ease;
+                  -moz-transition: all 350ms ease;
+                  -o-transition: all 350ms ease;
+                  -ms-transition: all 350ms ease;
+                  transition: all 350ms ease;
+              }*/
+              
+              h3 {
+                  color: $Orange;
+                  font-size:0.8em;
+                  line-height:1.3em;
+                  font-weight: normal;
+                  margin:0;
+                  width:100%;
+              }
+              h4 {
+                  color: $White;
+                  font-size:0.7em;
+                  line-height:1em;
+                  font-weight: normal;
+                  margin:0 0 20px 0;
+              }
+          }
+      }
+  }
+
+  /* Isotope Filtering */
+  
+  .isotope-item {
+    z-index: 2;
+  }
+  
+  .isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Isotope CSS3 transitions */
+  
+  .isotope,
+  .isotope .isotope-item {
+    -webkit-transition-duration: 0.8s;
+       -moz-transition-duration: 0.8s;
+         -o-transition-duration: 0.8s;
+            transition-duration: 0.8s;
+  }
+  
+  .isotope {
+    -webkit-transition-property: height, width;
+       -moz-transition-property: height, width;
+         -o-transition-property: height, width;
+            transition-property: height, width;
+  }
+  
+  .isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+       -moz-transition-property:    -moz-transform, opacity;
+         -o-transition-property:         top, left, opacity;
+            transition-property:         transform, opacity;
+  }
+  
+  /* disabling Isotope CSS3 transitions */
+  
+  .isotope.no-transition,
+  .isotope.no-transition .isotope-item,
+  .isotope .isotope-item.no-transition {
+    -webkit-transition-duration: 0s;
+       -moz-transition-duration: 0s;
+         -o-transition-duration: 0s;
+            transition-duration: 0s;
+  }
+
+  /* ^4f CONTACT */
+ #MainContent {
+   
+   form {
+     padding-top : $GlobalPadding;
+     margin-top : $GlobalPadding;
+     border-top : $DarkDottedBorder;
+
+     label {
+       width : 20%;
+       height : 25px;
+
+       float : left;
+       clear : left;
+       font-size : $GlobalLinkSize;
+       padding : 5px 0;
+       
+       &:first-child {
+         margin-bottom : 20px
+       }
+       
+       &:last-of-type {
+         margin-top : 18px
+       }
+
+     }
+     
+     input[type=text],
+     textarea {
+       width : 75%;
+       padding : 2%;
+       float : right;
+       //border : 1px solid $LightBlack;
+       border : none;
+       background : $UltraLightBlack;
+       margin-bottom : 20px;
+       font-size : $GlobalLinkSize;
+    
+     }
+     
+     input[type=text] {
+        height : 15px;
+     }
+
+      footer {
+        width : 79%;
+        float : right;
+      }
+      
+      input[type=submit] {
+        border : none;
+        height : 30px;
+        width : 130px;
+        padding-left : 6%;
+        background : transparent;
+        text-align : left;
+        font-size : $GlobalLinkSize;
+        position : relative;
+        z-index : 1;
+        @include sansSerifFont;
+        color : $White;
+        &:hover {
+          //color : $Orange;
+        }
+      }
+   }
+   
+    .send-arrow {
+      position : relative;
+      display : inline-block;
+      background : $Orange url(img/sprite.png) no-repeat 20px -72px;
+        &:hover {
+          background-color : $LightBlack;
+          .buttonBG {
+              //background : $DarkBlack;
+          }
+        } 
+        .buttonBG {
+            height : 30px;
+            width : 100px;
+            position : absolute;
+            top : 0;
+            z-index : 0;
+            background : $MediumBlackLight;
+        }
+      }   
+    
+ }
+ 
+ .contact #LeftSidebar p {
+   color : $White;
+   margin : 0;
+ }
+      
+/* ^5  TEXT
+*************************************************************************/
+  h1, h2, h3 , h4, h5, h6 {
+    @include resetSpacing;    
+    @include serifFont; 
+    color: $Orange;
+    font-weight : normal;
+    
+    a {
+      color: $Orange;
+    }
+  }
+  
+  h1 {
+      font-size: 1.5em;      
+  }
+
+  h2 {
+      font-size: 1.1em;      
+  }
+  
+  h3 {
+      font-size: 1em;
+      margin-bottom : 0.5em;
+  }
+  
+  h4 {
+      font-size: 0.9em;
+  }
+    
+  h5 {
+    @include sansSerifFont; 
+    font-size : 0.75em;
+  }
+  
+  h6 {
+    @include sansSerifFont; 
+    color: $White;
+    font-size : $GlobalLinkSize - 0.1;
+  }
+  
+  #content li, p {
+    font-size: 0.8em;
+  }
+
+  p a {
+      color: $Orange;
+      
+      &:hover {
+        text-decoration : underline;
+      }
+  }
+  
+  #content li a:hover {
+      color: $Orange;
+  }
+  
+  .sidebar ul {
+    margin: 0 0 $GlobalPadding 0;
+    padding: 0 0 $GlobalPadding 0;
+    font-size: $GlobalLinkSize + 0.2;
+    list-style : none;
+  }
+  
+  #ItemsGallery h3,
+  #ItemsGallery h4 {
+    @include sansSerifFont; 
+  }
