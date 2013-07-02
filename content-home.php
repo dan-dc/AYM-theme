@@ -5,21 +5,24 @@
 ?>
 
 		        <div id="Slider">
-					<div class="slide">
-			        	<div class="slide-text">
-			        		<p>We believe that all musically talented young people – not just those from well off families – should have the opportunity to develop their talent.</p>
-			        		<p>That’s why we’re here – to help young people with exceptional potential from lower-income backgrounds.</p>
-			        	</div>
-		                <img src="img/imgSlider01.jpg" alt="Slider">
-		        	</div>
-		        	<div class="slide">
-			        	<div class="slide-text darkBG">
-			        		<p>We believe that all musically talented young people – not just those from well off families – should have the opportunity to develop their talent.</p>
-			        		<p>That’s why we’re here – to help young people with exceptional potential from lower-income backgrounds.</p>
-			        	</div>
-		                <img src="img/imgSlider02.jpg" alt="Slider">
-		        	</div>
-		        </div>
+                <? $rows = get_field('hero-slides');
+				if($rows):
+					while(has_sub_field('hero-slides')):
+						$image = wp_get_attachment_image_src(get_sub_field('image'),'slider');
+						$imageSrc = $image[0];
+					 	$text = get_sub_field('text'); 
+						$black_white = get_sub_field('black_white'); 
+						?>
+                        <div class="slide">
+                            <div class="slide-text <? if ( $black_white == 'White' ) echo 'whiteTxt'; ?>">
+                            <? echo $text; ?>
+                            </div>
+                            <img src="<? echo $imageSrc ?>" />
+                        </div>
+				<?	endwhile;
+				endif; ?>
+
+		        </div><!-- / slider -->
 		        
 		        <header id="TopContent" class="clearfix featured-posts">
 		        	
