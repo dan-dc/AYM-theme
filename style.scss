@@ -194,7 +194,7 @@ Author URI: http://www.design-culture.co.uk/
  .highlight {
    color : $Orange;
  }
- 
+
   // helpers (DELETE THESE)
   .inner {
     padding: $GlobalPadding;
@@ -203,7 +203,7 @@ Author URI: http://www.design-culture.co.uk/
 
   img {
     display : block;
-    background : gray;
+    //background : gray;
   }
 
 /* ^4	STRUCTURE
@@ -550,7 +550,7 @@ Author URI: http://www.design-culture.co.uk/
   }
   
   .home #content footer {
-    padding : $GlobalPadding;
+    padding : 0 $GlobalPadding $GlobalPadding;
     
     h4 {
       color : $White;
@@ -641,7 +641,7 @@ Author URI: http://www.design-culture.co.uk/
       }
       
       p {
-        margin-top : 0;
+        margin : 0;
       }
   }
   

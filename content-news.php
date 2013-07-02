@@ -10,9 +10,9 @@
                     
 					<?php
                     $getNews = new WP_Query('cat=1&showposts=4');
-                    while ($getNews->have_posts()) : $getNews->the_post(); ?>
-                    
-                    <?php if( has_post_thumbnail() ) : ?>
+                    while ($getNews->have_posts()) : $getNews->the_post();
+					
+					if( has_post_thumbnail() ) : ?>
                     
                     <article>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php if( has_post_thumbnail() ) { the_post_thumbnail('news-thumb'); } ?></a>

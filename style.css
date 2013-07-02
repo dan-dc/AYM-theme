@@ -125,8 +125,7 @@ button[type=submit] {
   border: 1px solid green; }
 
 img {
-  display: block;
-  background: gray; }
+  display: block; }
 
 /* ^4	STRUCTURE
 *************************************************************************/
@@ -393,7 +392,7 @@ html, body {
   width: 980px; }
 
 .home #content footer {
-  padding: 20px; }
+  padding: 0 20px 20px; }
   .home #content footer h4 {
     color: white;
     margin-bottom: 10px; }
@@ -451,7 +450,7 @@ html, body {
     position: absolute;
     top: -30px; }
   #TopContent p {
-    margin-top: 0; }
+    margin: 0; }
 
 #BottomContent {
   padding: 20px; }

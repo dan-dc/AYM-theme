@@ -26,13 +26,21 @@
 	}
 	
 //	enable page excerpts
-	//add_post_type_support( 'page', 'excerpt' );
+	add_post_type_support( 'page', 'excerpt' );
 	
 //	trim excerpts to specific word count
 	function trim_excerpt($string, $word_limit) {
 		$words = explode(' ', $string);
 		return implode(' ', array_slice($words, 0, $word_limit));
 	}
+
+/*	add read more links
+	function read_more_link($output) {
+		global $post;
+		return $output . '<br><a href="<?php echo get_permalink($howWeHelp); ?>">Read more.</a>';
+	}
+	add_filter('the_excerpt', 'read_more_link');
+	*/
 
 //	enable featured image
 	if (function_exists( 'add_theme_support')) { 

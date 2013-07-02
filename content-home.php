@@ -2,6 +2,13 @@
 /**
  * The template for displaying the content all the front/home page.
  */
+ 
+// cache post id's
+
+$howWeHelp = get_post(425);
+$ourProgrammes = get_post(428);
+$supportAym = get_post(431);
+
 ?>
 
 		        <div id="Slider">
@@ -29,18 +36,33 @@
 					<h1 class="hide">Awards for Young Musicians</h1>
 
 	                <article>
-	                	<h2><a href="">How we help</a></h2>
-	                    <p>Lorem ipsum dolor sit amet, consectetur adipis icing elit. Ut, facilis quisquam autem atque illum quo aliquam explicabo consequatur ullam soluta ea qui id ratione eaque omnis nihil perspiciatis?<br><a href="#">Read more.</a></p>	    
+	                	<h2><a href="<?php echo get_permalink($howWeHelp); ?>"><? echo $howWeHelp->post_title; ?></a></h2>
+						<? if ( has_excerpt( $howWeHelp ) ) : ?>
+                            <p><?php echo $howWeHelp->post_excerpt; ?></p>
+                        <? else : ?>
+                            <p><? echo strip_shortcodes(wp_trim_words( $howWeHelp->post_content, 55, '' )); ?></p>
+                        <? endif; ?>                        
+                        <p class="readmore"><a href="<?php echo get_permalink($howWeHelp); ?>">Read more.</a></p>
 	                </article>
 	                
 	                <article>
-	                	<h2><a href="">Our Programmes</a></h2>
-	                    <p>Lorem ipsum dolor sit amet, consectetur nibh adip iscing elit. Phasellus in gravida quam, et tristique libero. Aenean pharetra odio odio, vel facilisis lacus suscipit sit amet. Aenean hendrerit, metus eu suscipit euismod, nibh tellus dapibus lectus, sed dapibus augue ante id risus. Phasellus in gravida quam, et tristique libero. <br><a href="#">Read more.</a></p>	    
+	                	<h2><a href="<?php echo get_permalink($ourProgrammes); ?>"><? echo $ourProgrammes->post_title; ?></a></h2>
+						<? if ( has_excerpt( $ourProgrammes ) ) : ?>
+                            <p><?php echo $ourProgrammes->post_excerpt; ?></p>
+                        <? else : ?>
+                            <p><? echo strip_shortcodes(wp_trim_words( $ourProgrammes->post_content, 55, '' )); ?></p>
+                        <? endif; ?>                        
+                        <p class="readmore"><a href="<?php echo get_permalink($ourProgrammes); ?>">Read more.</a></p>
 	                </article>
 	                
 	                <article>
-	                	<h2><a href="">Supporting AYM</a></h2>
-	                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, facilis quisquam autem atque illum quo aliquam explicabo consequatur ullam soluta ea qui id ratione eaque omnis nihil perspiciatis nesciunt?<br><a href="#">Read more.</a></p>	    
+	                	<h2><a href="<?php echo get_permalink($supportAym); ?>"><? echo $supportAym->post_title; ?></a></h2>
+						<? if ( has_excerpt( $supportAym ) ) : ?>
+                            <p><?php echo $supportAym->post_excerpt; ?></p>
+                        <? else : ?>
+                            <p><? echo strip_shortcodes(wp_trim_words( $supportAym->post_content, 55, '' )); ?></p>
+                        <? endif; ?>                        
+                        <p class="readmore"><a href="<?php echo get_permalink($supportAym); ?>">Read more.</a></p>
 	                </article>
 	                
 	            </header>
@@ -48,19 +70,24 @@
 	        	<div id="BottomContent" class="clearfix featured-posts">
 	        		
 	                <article>
-	        	        <img src="img/imgThumbLink02.jpg" width="130" height="87" alt="News">
-	                	<h3><a href="">News</a></h3>
-	                    <p>A community of support: Volunteering in progress <br><a href="#">Read more.</a></p>	    
+                    <? 	$latestNews = new WP_Query('cat=1&showposts=1');
+						while($latestNews->have_posts()) : $latestNews->the_post(); ?>
+                            <a href="<? the_permalink() ?>"><? the_post_thumbnail('footer-links'); ?></a>
+                            <h3><a href="<? the_permalink() ?>">News</a></h3>
+                            <p><? the_title() ?></p>
+                            <p class="readmore"><a href="<? the_permalink() ?>">Read more.</a></p>
+					<?	endwhile; ?>
 	                </article>
 	                
 	                <article>
-	        	        <img src="img/imgThumbLink01.jpg" width="130" height="87" alt="AYM">
+	        	        <a href=""><img src="<?php bloginfo("template_url"); ?>/img/imgThumbLink01.jpg" width="130" height="87" alt="AYM"></a>
 	                	<h3><a href="">AYM on film</a></h3>
-	                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br><a href="#">Read more.</a></p>	    
+	                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br><a href="#">Watch Video.</a></p>	    
 	                </article>
 	                
 	                <article>
-	                	<a href=""><img src="img/home-promo.png" alt="2013 Awards"/></a>    
+                    	<? /* need to think about how to make this part dynamic */ ?>
+	                	<a href=""><img src="<?php bloginfo("template_url"); ?>/img/home-promo.png" alt="2013 Awards"/></a>    
 	                </article>
 
 	        	</div>
