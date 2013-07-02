@@ -194,6 +194,19 @@ Author URI: http://www.design-culture.co.uk/
  .highlight {
    color : $Orange;
  }
+ 
+ .post-edit-link {
+
+   padding : 5px $GlobalPadding;
+   font-size : $GlobalLinkSize;
+   font-weight : bold;
+   color : $White;
+   background : $Orange;
+   
+   &:hover {
+     background : $LightBlack;
+   }
+ }
 
   // helpers (DELETE THESE)
   .inner {
@@ -201,9 +214,9 @@ Author URI: http://www.design-culture.co.uk/
     border : 1px solid green;
   }
 
-  img {
+  .page-template-default img {
     display : block;
-    //background : gray;
+    background : gray;
   }
 
 /* ^4	STRUCTURE
@@ -794,6 +807,16 @@ Author URI: http://www.design-culture.co.uk/
      }
    }
    
+   .attachment-hero {
+     position : relative;
+     top : - $GlobalPadding;
+     
+     + h1 {
+       margin-top : - $GlobalPadding;
+     }
+     
+   }
+   
    /* ^4d NEWS */  
   .news #MainContent {
 
@@ -871,12 +894,6 @@ Author URI: http://www.design-culture.co.uk/
               color: $White;
           }
       }
-  }
-  
-  .single #MainContent {
-    header {
-      padding-top : 0 ;
-    }
   }
   
   /* ^4e GALLERY */

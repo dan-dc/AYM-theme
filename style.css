@@ -120,12 +120,22 @@ button[type=submit] {
 .highlight {
   color: #ff6600; }
 
+.post-edit-link {
+  padding: 5px 20px;
+  font-size: 0.7em;
+  font-weight: bold;
+  color: white;
+  background: #ff6600; }
+  .post-edit-link:hover {
+    background: #cccccc; }
+
 .inner {
   padding: 20px;
   border: 1px solid green; }
 
-img {
-  display: block; }
+.page-template-default img {
+  display: block;
+  background: gray; }
 
 /* ^4	STRUCTURE
 *************************************************************************/
@@ -553,6 +563,12 @@ html, body {
     #ThumbLinks a:hover {
       border-bottom: 1px solid #ff6600; }
 
+.attachment-hero {
+  position: relative;
+  top: -20px; }
+  .attachment-hero + h1 {
+    margin-top: -20px; }
+
 /* ^4d NEWS */
 .news #MainContent article {
   position: relative;
@@ -602,9 +618,6 @@ html, body {
         color: #ff6600; }
     #Pagination p span {
       color: white; }
-
-.single #MainContent header {
-  padding-top: 0; }
 
 /* ^4e GALLERY */
 .gallery #MainContent {

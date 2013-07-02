@@ -6,6 +6,9 @@
 		if ( is_page_template( 'template-page-news.php' ) )
 		$classes[] = 'news';
 
+		if ( is_page_template( 'archive-gallery.php' ) )
+		$classes[] = 'gallery';
+
 		return $classes;
 	}
 	add_filter('body_class','add_body_class');

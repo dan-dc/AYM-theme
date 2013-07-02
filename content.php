@@ -22,21 +22,16 @@ else :
 ?>
  
 	            <div id="MainContent">
-                
+                                
 <?php
  // start the loop
  if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-	//if( is_page() ) {
-	if( is_page_template( 'page.php' ) ) {
-		get_template_part( 'content', 'page' );
-	}
-
-	elseif( is_single() ) {
+	if( is_single() ) {
 		get_template_part( 'content', 'single' );
 	}
-	
-	elseif( is_page_template( 'template-page-news.php' ) ) {
+
+	else if( is_page_template( 'template-page-news.php' ) ) {
 		get_template_part( 'content', 'news' );
 	}
 		
