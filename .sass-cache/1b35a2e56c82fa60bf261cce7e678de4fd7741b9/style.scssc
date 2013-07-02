@@ -1,7 +1,7 @@
 3.2.9 (Media Mark)
-f15eb2a4931dd1de1f916fac7c9fe25aa9ccca17
+01e4f2e6bd38fa3bebd310c6e79909205b5746b3
 o:Sass::Tree::RootNode
-:@template"žQ/*  
+:@template" Q/*  
 Theme Name: AYM
 Theme URI: http://www.a-y-m.org.uk/
 Description: AYM Website 2013
@@ -597,7 +597,7 @@ Author URI: http://www.design-culture.co.uk/
         position : absolute;
       }
         
-      .darkBG p {
+      .whiteTxt p {
         color : $White;
       }   
            
@@ -1615,8 +1615,8 @@ color;[ ;o;#	;$"Orange;"Orange;@;iL;@;iL;/;0;@;4["&:first-chi
 ;;0;7@õ;<o;=;>{ ;iQ;8[o;E	;["img;7@õ;iQ;F0;1To;3;.i ;[o;-;.i ;["
 color;[ ;o;#	;$"
 White;"
-White;@;iV;@;iV;/;0;@;4[".darkBG p;iU;5o;6;7" ;iU;8[o;9;8[o;:
-;;0;7@;<o;=;>{ ;iU;8[o;D;["darkBG;7@;iUo;:
+White;@;iV;@;iV;/;0;@;4[".whiteTxt p;iU;5o;6;7" ;iU;8[o;9;8[o;:
+;;0;7@;<o;=;>{ ;iU;8[o;D;["whiteTxt;7@;iUo;:
 ;;0;7@;<o;=;>{ ;iU;8[o;E	;["p;7@;iU;F0;1T;@;4[".slide;i9;5o;6;7" ;i9;8[o;9;8[o;:
 ;;0;7@!;<o;=;>{ ;i9;8[o;D;["
 slide;7@!;i9;1T;@;4["#Slider;i5;5o;6;7" ;i5;8[o;9;8[o;:

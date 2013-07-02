@@ -28,22 +28,20 @@
 <!--	modernizr -->        
         <script src="<?php bloginfo("template_url"); ?>/js/core/modernizr-2.6.2.min.js"></script>
 
-        <title>Awards for Young Musicians</title>
-        
         <title><?php
             // Print the <title> tag based on what is being viewed.
             global $page, $paged;
+			
+            wp_title( '|', true, 'right' );
 
-            // Add the blog name.
-            bloginfo( 'name' );
-        
             // Add the blog description for the home/front page.
             $site_description = get_bloginfo( 'description', 'display' );
             if ( $site_description )
-                echo " | $site_description";
+                echo "$site_description | ";
 				
-            wp_title( '|', true, 'left' );
-
+            // Add the blog name.
+            bloginfo( 'name' );
+        
             ?></title>
 
     </head>
