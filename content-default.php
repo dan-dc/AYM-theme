@@ -4,7 +4,7 @@
  */
 ?>
 
-					<?php if(has_post_thumbnail()) { the_post_thumbnail(); } ?>
+					<?php if(has_post_thumbnail()) { the_post_thumbnail('hero'); } ?>
                     <header>
                         <h1><?php the_title(); ?></h1>
                     </header>
