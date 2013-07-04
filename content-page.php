@@ -9,5 +9,4 @@
 		            </header>
 					<?php edit_post_link('Edit Page'); ?>
 					<?php the_content(); ?>
-                    
 <?php get_sidebar('related-stories'); ?>

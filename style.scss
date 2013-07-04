@@ -14,7 +14,7 @@ Author URI: http://www.design-culture.co.uk/
 	Developed by Dan Moe & Ruyman Rodriguez 
 	for Design Culture - http://www.design-culture.co.uk/ (c) 2013
 	
-	MODULE: 	style.scss
+	MODULE: 	styles.scss
 	PURPOSE:	main site styles
 	
 *************************************************************************/
@@ -376,7 +376,7 @@ Author URI: http://www.design-culture.co.uk/
       padding-left : 20px;
     }
     
-    > div > ul {
+    > div > ul { // top level
       position : relative;
       float : right;
       @include resetSpacing;
@@ -390,11 +390,11 @@ Author URI: http://www.design-culture.co.uk/
           > a {
             display : inline-block;
             margin : 0;
-            padding : 5px 1em;
+            padding : 5px 0.8em;
             height : 15px;
           }
           
-          > ul {
+          > ul { // secondary level
             position : absolute;
             background : $DarkBlack;
             background : rgba(0,0,0,0.7);
@@ -410,7 +410,7 @@ Author URI: http://www.design-culture.co.uk/
                 padding : 5px 1em;
               }
               
-              > ul {
+              > ul { // tertiary level
                 @include resetSpacing;
                 background : $MediumBlack;
                 background : rgba(0,0,0,0.6);
@@ -418,7 +418,6 @@ Author URI: http://www.design-culture.co.uk/
                 top : 0;
                 left : 100%;
                 width : auto;
-                //display : none !important;
                 
                 > li {
                   white-space:nowrap;
@@ -434,7 +433,7 @@ Author URI: http://www.design-culture.co.uk/
       content : "\203A";
       display : inline-block;
       position : relative;
-      right : 8px;
+      right : 5px;
       top : 0;
       transform:rotate(90deg);
       -ms-transform:rotate(90deg); /* IE 9 */
@@ -771,7 +770,7 @@ Author URI: http://www.design-culture.co.uk/
       bottom : $StickyHeight ;
 
       @include serifFont;
-      font-size: 1.3em; 
+      font-size: 1.28em; 
       
       p {
         color : $White;
