@@ -6,10 +6,8 @@
 		    	    <header>
                         <h1><?php the_title(); ?></h1>
 		            </header>
-					<?php the_content(); ?>
                     
 					<?php
-                    
                     $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
                     $query_args = array(
                         'post_type'	        =>  'post',

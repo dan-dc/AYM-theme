@@ -191,6 +191,10 @@ Author URI: http://www.design-culture.co.uk/
     background : $MediumBlackLight;
   }
 
+  .contributors-blog #wrapper {
+    background : $Purple;
+  }
+
  .highlight {
    color : $Orange;
  }
@@ -208,7 +212,8 @@ Author URI: http://www.design-culture.co.uk/
    }
  }
 
-  // helpers (DELETE THESE)
+  // helpers (DELETE THESE) 
+  /*
   .inner {
     padding: $GlobalPadding;
     border : 1px solid green;
@@ -516,60 +521,70 @@ Author URI: http://www.design-culture.co.uk/
   }
   
   // ^4a4 sitemap
-  #sitemap {
-    @include resetSpacing;
-    padding : 15px 20px 0;
-    float : left;
-    
-    li a {
-        padding : 0 1.5em;
-        color : $White;
-        &:hover {
-          color : $Black;
-        }
-    } 
-    
-    > li:first-child a,
-    > li:first-child ul {
-      padding-left : 0;
+  #footer {
+    .menu {
+      @include resetSpacing;
+      padding : 15px 20px 0;
+      float : left;
+      
+      li a {
+          padding : 0 1.5em;
+          color : $White;
+          &:hover {
+            color : $Black;
+          }
+      } 
+      
+      > li:first-child a,
+      > li:first-child ul {
+        padding-left : 0;
+      }
+  
+      ul + ul {
+         padding-top : 23px !important;
+      }   
     }
-
-    ul + ul {
-       padding-top : 23px !important;
-    }   
-  }
+    
+    .menu > li {
+      display : inline-block;
+      float : left;
+      height : 160px;
+      margin : 0;
+      font-size : $GlobalLinkSize - 0.1;
+      border-right : 1px dotted $White;
   
-  #sitemap > li {
-    display : inline-block;
-    float : left;
-    height : 160px;
-    margin : 0;
-    font-size : $GlobalLinkSize - 0.1;
-    border-right : 1px dotted $White;
-
-    &:last-child {
-      border-right : none;
+      &:last-child {
+        border-right : none;
+      }
     }
-  }
+  
+    .menu > li > a {
+      font-weight: 600;
+      color : $White;
+    }
+    
+    .menu > li ul {
+      @include resetSpacing;
+    }
+    
+    .menu > li > ul > li  {
+      clear : both;
+      padding : 0;
+    }  
 
-  #sitemap > li > a {
-    font-weight: 600;
-    color : $White;
-  }
-  
-  #sitemap > li ul {
-    @include resetSpacing;
-  }
-  
-  #sitemap > li > ul > li  {
-    clear : both;
-    padding : 0;
-  }  
-  
-  .right-column {
-    width : 205px;
-    float : right; 
-    padding : 0 0.7em;
+    .menu > li > ul > li > ul,
+    .menu-item-153,
+    .menu-item-64,
+    .menu-item-154 {
+      //border : 1px solid black;
+      display : none !important;
+    }  
+    
+    .right-column {
+      width : 205px;
+      float : right; 
+      padding : 0 0.7em;
+    }
   }
 
   #footer nav .right-column {

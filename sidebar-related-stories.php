@@ -7,7 +7,7 @@
                 <?	while(has_sub_field('related_links')):
                     $pageLink = get_sub_field('page_link'); ?>
                     
-                    <a href="<?php get_permalink( $pageLink->ID ); ?>">
+                    <a href="<?php echo get_permalink( $pageLink->ID ); ?>">
                         <article>
                             <?php if(has_post_thumbnail($pageLink->ID)) echo get_the_post_thumbnail($pageLink->ID, 'footer-links'); ?>
                             <h4><?php echo get_the_title( $pageLink->ID ); ?></h4>

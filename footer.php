@@ -5,6 +5,10 @@
 		<footer id="footer">
         	<nav>
         		<h6 class="hide">site map</h6>
+                <?php wp_nav_menu( array( 'menu' => 'main menu' ) ); ?>
+                
+                <? 
+				/*
         		<ul id="sitemap" class="clearfix">
 	        		<li>
 	        			<a href="">About us</a>
@@ -71,6 +75,9 @@
 	        			</ul>
 	        		</li>
         		</ul>
+				*/
+				?>
+
         		<div class="right-column">
         			<p>
         				<strong>Contact us</strong><br/>

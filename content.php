@@ -34,7 +34,11 @@ else :
 	else if( is_page_template( 'template-page-news.php' ) ) {
 		get_template_part( 'content', 'news' );
 	}
-		
+
+	else if( is_page_template( 'template-page-contact.php' ) ) {
+		get_template_part( 'content', 'contact' );
+	}
+
 	else { 
 		get_template_part( 'content', 'default' );
 	}

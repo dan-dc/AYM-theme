@@ -6,7 +6,7 @@
 		if ( is_page_template( 'template-page-news.php' ) )
 		$classes[] = 'news';
 
-		if ( is_archive( 'gallery' ) )
+		else if ( is_archive( 'gallery' ) ) 
 		$classes[] = 'gallery';
 
 		return $classes;
@@ -19,6 +19,7 @@
 	}
 	
 //	declare widget zones
+	/*
     if (function_exists('register_sidebar')) {
 	register_sidebar(array(
 			'name' => 'widgetName',
@@ -27,7 +28,14 @@
 			'after_widget'  => '</div>',
     	));
 	}
+	*/
 	
+//	admin footer override
+	function wp_admin_dashboard_custom_footer_text( $default_text ) {
+		return '<span id="footer-thankyou">Website created by <a href="http://www.design-culture.co.uk/" target="_blank" >Design Culture</a><span> | Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a>';
+	}
+	add_filter( 'admin_footer_text', 'wp_admin_dashboard_custom_footer_text' );
+
 //	enable page excerpts
 	add_post_type_support( 'page', 'excerpt' );
 	
@@ -61,7 +69,7 @@
 	add_image_size( 'footer-links', 130, 87, true );
 
 
-// SASS/SCSS Stylesheet Definition
+//	SASS/SCSS Stylesheet Definition
     function generate_css() {
         if(function_exists('wpsass_define_stylesheet')) {
             wpsass_define_stylesheet("style.scss");
