@@ -19,10 +19,15 @@ $(document).ready(function() {
 
 //	drop down navigation
 	$('#menu-main-menu > li').has('ul').addClass('drop-down') 
+	$('#menu-main-menu > li > ul > li').has('ul').addClass('drop-out') 
 	//.append('<span class="drop-down">&rsaquo;</span>')
 	
 	$('#menu-main-menu > li').hover(function(){
-		$(this).find('ul').stop().slideToggle();
+		$(this).find('ul').stop().slideToggle(200);
+	})
+
+	$('#menu-main-menu > li > ul > li').hover(function(){
+		$(this).find('ul').stop().toggle(200);
 	})
 
 //	fill & clear newsletter signup form

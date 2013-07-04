@@ -377,6 +377,7 @@ Author URI: http://www.design-culture.co.uk/
     }
     
     > div > ul {
+      position : relative;
       float : right;
       @include resetSpacing;
 
@@ -402,8 +403,27 @@ Author URI: http://www.design-culture.co.uk/
             line-height : 1.8em;
             display : none;
             
-            li a {
-              padding : 5px 1em;
+            > li {
+              position : relative;
+              
+              a {
+                padding : 5px 1em;
+              }
+              
+              > ul {
+                @include resetSpacing;
+                background : $MediumBlack;
+                background : rgba(0,0,0,0.6);
+                position : absolute;
+                top : 0;
+                left : 100%;
+                width : auto;
+                //display : none !important;
+                
+                > li {
+                  white-space:nowrap;
+                }
+              }
             }
           } 
        }
@@ -420,6 +440,15 @@ Author URI: http://www.design-culture.co.uk/
       -ms-transform:rotate(90deg); /* IE 9 */
       -webkit-transform:rotate(90deg); /* Safari and Chrome */      
     }
+    
+    .drop-out:after {
+      color : $Orange;
+      content : "\203A";
+      display : inline-block;
+      position : relative;
+      right : 10px;
+      top : 0;
+    }
 
     a {
       color : $White;
@@ -429,9 +458,9 @@ Author URI: http://www.design-culture.co.uk/
       
     }
     
-    /*
     // uncomment to reveal without jQuery
-    ul li:hover ul {
+    /*
+    ul li:hover > ul {
       display : block;
     }
     */

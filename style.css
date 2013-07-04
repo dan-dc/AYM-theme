@@ -253,8 +253,7 @@ html, body {
   background: #212121;
   clear: both;
   /*
-  // uncomment to reveal without jQuery
-  ul li:hover ul {
+  ul li:hover > ul {
     display : block;
   }
   */ }
@@ -270,6 +269,7 @@ html, body {
     font-size: 0.7em;
     padding-left: 20px; }
   #nav > div > ul {
+    position: relative;
     float: right;
     padding: 0;
     margin: 0; }
@@ -292,8 +292,21 @@ html, body {
         padding: 10px 0;
         line-height: 1.8em;
         display: none; }
-        #nav > div > ul > li > ul li a {
-          padding: 5px 1em; }
+        #nav > div > ul > li > ul > li {
+          position: relative; }
+          #nav > div > ul > li > ul > li a {
+            padding: 5px 1em; }
+          #nav > div > ul > li > ul > li > ul {
+            padding: 0;
+            margin: 0;
+            background: #333333;
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: auto; }
+            #nav > div > ul > li > ul > li > ul > li {
+              white-space: nowrap; }
   #nav .drop-down:after {
     color: #ff6600;
     content: "\203A";
@@ -306,6 +319,13 @@ html, body {
     /* IE 9 */
     -webkit-transform: rotate(90deg);
     /* Safari and Chrome */ }
+  #nav .drop-out:after {
+    color: #ff6600;
+    content: "\203A";
+    display: inline-block;
+    position: relative;
+    right: 10px;
+    top: 0; }
   #nav a {
     color: white; }
     #nav a:hover {
