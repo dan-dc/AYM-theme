@@ -101,6 +101,8 @@
 <!--	scripts -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php bloginfo("template_url"); ?>/js/core/jquery-1.10.1.min.js"><\/script>')</script>
+        <link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/css/fancybox/jquery.fancybox.css">
+        <script src="<?php bloginfo("template_url"); ?>/js/jquery.fancybox.pack.js"></script>
         <script src="<?php bloginfo("template_url"); ?>/js/plugins.js"></script>
         <script src="<?php bloginfo("template_url"); ?>/js/main.js"></script>
 

@@ -890,12 +890,29 @@ Author URI: http://www.design-culture.co.uk/
                 color: $Orange;
               }
           }
+          
           span {
               color: $White;
           }
+          
+          .current {
+              color: $Orange;
+          }
+          
+          .page-numbers {
+            
+              &:after {
+                color: $White;
+                content: ", ";
+              }
+              
+              &:last-child:after {
+                content: none;
+              }
+          }
       }
   }
-  
+
   /* ^4e GALLERY */
  
   .gallery #MainContent {

@@ -3,7 +3,7 @@
 				<div id="header">
 					<div id="smallLinks">
 						<ul>
-							<li><a href="">FAQs</a></li>
+							<li><a href="faqs">FAQs</a></li>
 							<li>Follow
 								<ul id="socialLinks">
 									<li><a href="" class="linkedin"><b class="hide">linkedin</b></a></li>
@@ -11,7 +11,7 @@
 									<li><a href="" class="facebook"><b class="hide">facebook</b></a></li>
 								</ul>
 							</li>
-							<li><a href="">Contact Us</a></li>
+							<li><a href="contact-us">Contact Us</a></li>
 						</ul>
 					</div>
 					<form action="#" method="post" id="search-form" class="clearfix">

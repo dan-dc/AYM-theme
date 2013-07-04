@@ -618,6 +618,13 @@ html, body {
         color: #ff6600; }
     #Pagination p span {
       color: white; }
+    #Pagination p .current {
+      color: #ff6600; }
+    #Pagination p .page-numbers:after {
+      color: white;
+      content: ", "; }
+    #Pagination p .page-numbers:last-child:after {
+      content: none; }
 
 /* ^4e GALLERY */
 .gallery #MainContent {

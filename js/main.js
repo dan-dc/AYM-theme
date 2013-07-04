@@ -18,10 +18,10 @@ $(document).ready(function() {
 *************************************************************************/
 
 //	drop down navigation
-	$('#nav li').has('ul').addClass('drop-down') 
+	$('#menu-main-menu > li').has('ul').addClass('drop-down') 
 	//.append('<span class="drop-down">&rsaquo;</span>')
 	
-	$('#nav li').hover(function(){
+	$('#menu-main-menu > li').hover(function(){
 		$(this).find('ul').stop().slideToggle();
 	})
 
@@ -75,31 +75,9 @@ $(document).ready(function() {
     });	
 	
 /*************************************************************************
- *  Validate forms
+ *  FancyBox
 *************************************************************************/
-	
-	var validator = new FormValidator('contact-form', [{
-		name: 'name',
-		display: 'Name',    
-		rules: 'required'
-	}, {
-		name: 'email',
-		display: 'Email',
-		rules: 'required|valid_email'
-	}, {
-		name: 'comments',
-		display: 'Comments',
-		rules: 'required'
-	}], function(errors, event) {
-		var SELECTOR_ERRORS = $('.errors');
-		if (errors.length > 0) {
-			SELECTOR_ERRORS.empty();                    
-			for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
-				 SELECTOR_ERRORS.append(errors[i].message + '<br />');
-			}                    
-		} else {
-			SELECTOR_ERRORS.css({ display: 'none' });
-		}
-	});
+
+    $(".popUp").fancybox();
 	
 }) // end doc ready()

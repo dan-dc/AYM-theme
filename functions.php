@@ -6,7 +6,7 @@
 		if ( is_page_template( 'template-page-news.php' ) )
 		$classes[] = 'news';
 
-		if ( is_page_template( 'archive-gallery.php' ) )
+		if ( is_archive( 'gallery' ) )
 		$classes[] = 'gallery';
 
 		return $classes;
@@ -59,4 +59,14 @@
 	add_image_size( 'promo', 190, 110, true );
 	add_image_size( 'news-thumb', 150, 100, true );
 	add_image_size( 'footer-links', 130, 87, true );
+
+
+// SASS/SCSS Stylesheet Definition
+    function generate_css() {
+        if(function_exists('wpsass_define_stylesheet')) {
+            wpsass_define_stylesheet("style.scss");
+            wpsass_define_stylesheet("style.css");
+        }
+    }
+    add_action( 'after_setup_theme', 'generate_css' );
 ?>

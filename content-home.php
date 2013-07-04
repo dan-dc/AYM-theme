@@ -5,16 +5,16 @@
  
 // cache post id's
 
-$howWeHelp = get_post(425);
-$ourProgrammes = get_post(428);
-$supportAym = get_post(431);
+$howWeHelp = get_post(56);
+$ourProgrammes = get_post(58);
+$supportAym = get_post(59);
 
 ?>
 
 		        <div id="Slider">
-                <? $rows = get_field('hero-slides');
+                <? $rows = get_field('hero_slides');
 				if($rows):
-					while(has_sub_field('hero-slides')):
+					while(has_sub_field('hero_slides')):
 						$image = wp_get_attachment_image_src(get_sub_field('image'),'slider');
 						$imageSrc = $image[0];
 					 	$text = get_sub_field('text'); 
