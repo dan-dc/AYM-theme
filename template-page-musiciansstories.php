@@ -2,7 +2,7 @@
 /**
  * The news page template file.
  *
- * Template Name: Contact
+ * Template Name: Musicians stories
  *
  */
 get_header();

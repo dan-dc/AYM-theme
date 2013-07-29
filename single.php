@@ -12,10 +12,7 @@ get_header();
 	        </section><!-- /content -->
             
         	<div class="sidebar-panel grey left">
-	    	    <div id="LeftInfo">
-	    	        <h4>Make a donation</h4>
-	    	        <p>Your support will make a real difference to childrens lifes, find out how to make a donation <a href="#">here</a>.</p>
-	    	    </div>
+	    	    <?php if ( dynamic_sidebar('Left Info') ) : else : endif; ?>
         	</div>
             
         	<div class="sidebar-panel white right"></div>

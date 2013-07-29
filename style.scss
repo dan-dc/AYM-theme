@@ -56,15 +56,15 @@ Author URI: http://www.design-culture.co.uk/
 *************************************************************************/
 	
 	// Colours
-	$Black : #000;
-	$DarkBlack : lighten($Black, 13%);
+  $Black : #000;
+  $DarkBlack : lighten($Black, 13%);
   $MediumBlack : lighten($Black, 20%);
   $MediumBlackLight : lighten($Black, 28%);
   $LightBlack : lighten($Black, 80%);
   $UltraLightBlack : lighten($Black, 95%);
   $White : #FFF;
   $Orange : #FF6600;
-  $Purple : #6C276A;
+  $Purple : #441644;
   $Biege : #DAD6CA;
   
   // Globals
@@ -191,12 +191,28 @@ Author URI: http://www.design-culture.co.uk/
     background : $MediumBlackLight;
   }
 
-  .contributors-blog #wrapper {
-    background : $Purple;
+  .contributors-blog #wrapper,
+  .single-contributors_blog #wrapper {
+    background : $Purple !important;
+  }
+  
+  .musicians-stories #wrapper,
+  .single-musicians_stories #wrapper {
+    background : $UltraLightBlack !important;
+/*    color : $DarkBlack !important;*/
+  }
+  
+  .aym-angels #wrapper,
+  .single-aym_angels #wrapper {
+    background : $White !important;
   }
 
  .highlight {
    color : $Orange;
+ }
+ 
+ a span.highlight:hover {
+   color : $DarkBlack !important;
  }
  
  .post-edit-link {
@@ -353,16 +369,24 @@ Author URI: http://www.design-culture.co.uk/
     }
   }
   
-  #search-form {
+  #searchform {
     width : 220px;
     float : right;
     padding-top : $GlobalPadding;
+    
+    label {
+      display : none;
+    }
 
     input[type=text] {
       @include formFields;
       width : 165px;
       float : left;
       background : $UltraLightBlack;
+    }
+    input[type=submit] {
+      @include arrowLinks;
+      color: transparent;
     }
   }
   
@@ -572,13 +596,10 @@ Author URI: http://www.design-culture.co.uk/
       padding : 0;
     }  
 
-    .menu > li > ul > li > ul,
-    .menu-item-153,
-    .menu-item-64,
-    .menu-item-154 {
-      //border : 1px solid black;
-      display : none !important;
-    }  
+    .menu-item-226,
+    .menu-item-227 {
+      margin-top: 24px;
+    }     
     
     .right-column {
       width : 205px;
@@ -621,6 +642,7 @@ Author URI: http://www.design-culture.co.uk/
   #Slider {
     height : 365px;
     position : relative;
+    overflow : hidden;
     
     .slide {
       height : 365px;
@@ -645,7 +667,6 @@ Author URI: http://www.design-culture.co.uk/
           }
         }  
       }
-      
       img {
         position : absolute;
       }
@@ -733,7 +754,7 @@ Author URI: http://www.design-culture.co.uk/
   
   #MainContent {
     width : 480px;
-    padding : 0 $GlobalPadding;
+    padding : 0 $GlobalPadding $GlobalPadding;
     float : left;
     
     header {
@@ -754,8 +775,28 @@ Author URI: http://www.design-culture.co.uk/
     width : 210px;
     float : left;
     
-    li a {
-        color : $White;
+    li {
+        &.current_page_item a {
+            color : $Orange;
+        }
+        &.current_page_item ul li a {
+            color : $White !important;
+            &:hover {
+                color : $Orange !important;
+            }
+        }
+        a {
+            color : $White;
+            font-size: 0.95em !important;
+        }
+        ul {
+            margin: 2px 0 4px;
+            padding-bottom: 0;
+            font-size: 1.1em !important;
+            li {
+                padding-left: 15px;
+            }
+        }        
     }
   }
   
@@ -774,6 +815,12 @@ Author URI: http://www.design-culture.co.uk/
   .sidebar .menu {
       border-bottom: 1px dotted $White;
   }
+  
+  .tweet {
+      a {
+          color: $Orange !important;
+      }
+  }
 
   #LeftInfo { 
       width : 210px;  
@@ -787,6 +834,10 @@ Author URI: http://www.design-culture.co.uk/
       @include serifFont;
       font-size: 1.28em; 
       
+      h2 {
+        font-size: 0.9em;
+      }
+      
       p {
         color : $White;
       }
@@ -797,11 +848,15 @@ Author URI: http://www.design-culture.co.uk/
      padding-bottom : $GlobalPadding;
      border-bottom : $DarkDottedBorder;
      
-     h2 a {
-       color : $DarkBlack;
-       &:hover {
-         text-decoration : underline;
-       }
+     h2 {
+         font-size: 1em;
+         margin-bottom: 0.5em;
+         a {
+           color : $DarkBlack;
+           &:hover {
+             text-decoration : underline;
+           }
+         }
      }
      
      ul {
@@ -861,7 +916,10 @@ Author URI: http://www.design-culture.co.uk/
    }
    
    /* ^4d NEWS */  
-  .news #MainContent {
+  .news #MainContent,
+  .contributors-blog #MainContent,
+  .musicians-stories #MainContent,
+  .aym-angels #MainContent {
 
     article {
       position: relative;
@@ -921,9 +979,25 @@ Author URI: http://www.design-culture.co.uk/
       border-bottom: 1px dotted $White;
     }
   }
+  
+  .musicians-stories #MainContent,
+  .aym-angels #MainContent,
+  .single-musicians_stories #MainContent,
+  .single-aym_angels #MainContent {
+    p {
+        color: $DarkBlack !important;  
+    }
+    .itemNews {
+        border-bottom: 1px dotted $DarkBlack !important;
+    }
+    .no-image {
+      border-bottom: 1px dotted $DarkBlack !important;
+    }   
+  }
 
   #Pagination {
       color: $Orange;
+      
       p {
           float:right;
           font-size:0.7em;
@@ -955,11 +1029,42 @@ Author URI: http://www.design-culture.co.uk/
           }
       }
   }
+  
+  .musicians-stories #Pagination,
+  .aym-angels #Pagination,
+  .search #Pagination {
+      a {
+          color: $Orange !important;
+          &:hover {
+            color: $Orange;
+          }   
+      }
+      span{
+        color: $DarkBlack !important;
+      }
+      .page-numbers {
+          &:after {
+            color: $DarkBlack !important;
+          }
+      }  
+  }
+  
+  .single #MainContent {
+      img {
+          float: left;
+          margin: 0 20px 20px 0;
+      }
+  }
 
   /* ^4e GALLERY */
  
-  .gallery #MainContent {
+  .gallery #MainContent,
+  .post-type-archive-gallery #MainContent {
     width : 730px;
+  }
+  
+  .people #MainContent {
+    width : 500px;
   }
 
   #Filter {
@@ -982,11 +1087,20 @@ Author URI: http://www.design-culture.co.uk/
       }
       
   }
+  
+  .people #Filter {
+      a {
+          color: $MediumBlack;
+          &:hover {
+              color:$Orange;
+          }
+      }
+  }
 
   #ItemsGallery {
     
       article {
-        margin : 0 $GlobalPadding 0 0;
+        margin : 0 $GlobalPadding $GlobalPadding 0;
       
           a {
               display: inline-block;
@@ -1074,29 +1188,37 @@ Author URI: http://www.design-culture.co.uk/
      padding-top : $GlobalPadding;
      margin-top : $GlobalPadding;
      border-top : $DarkDottedBorder;
+     
+     fieldset {
+         border : none;
+         padding : 0;
+         margin : 0 0 20px 0;
+         border-bottom : $DarkDottedBorder;
+         
+         legend {
+             display : none;
+         }
+     }
 
      label {
-       width : 20%;
+       width : 22%;
        height : 25px;
 
        float : left;
        clear : left;
        font-size : $GlobalLinkSize;
        padding : 5px 0;
+       margin-bottom : 20px;
        
-       &:first-child {
-         margin-bottom : 20px
-       }
-       
-       &:last-of-type {
+ /*      &:last-of-type {
          margin-top : 18px
-       }
+       } */
 
      }
      
      input[type=text],
      textarea {
-       width : 75%;
+       width : 73%;
        padding : 2%;
        float : right;
        //border : 1px solid $LightBlack;
@@ -1107,19 +1229,66 @@ Author URI: http://www.design-culture.co.uk/
     
      }
      
+     select {
+         float : right;
+         margin-bottom: 20px;
+//         background : $UltraLightBlack;
+//         border : none;
+         width : 77%;
+         font-size : 0.8em;
+         margin-top : 3px;
+         height : auto;
+         padding : 5px 0;
+     }
+     
+     .twoCol { 
+         float : left;
+         width : 100%;
+            
+         input[type=text],
+         textarea, select {
+             clear : none;
+             float : left;
+             width : 20%; 
+             
+             &.second {
+                 width : 24%;
+                 float : right;
+             }  
+         }
+         label {
+             clear : none;
+             float : left;
+             width : 23%;
+             
+             &.second {
+                padding-left : $GlobalPadding; 
+                width : 17%; 
+             } 
+         }
+     }
+     
+     textarea {
+         margin-bottom: 0;
+     }
+     
      input[type=text] {
         height : 15px;
      }
 
       footer {
-        width : 79%;
+        width : 77%;
         float : right;
+        
+        p.caption {
+            font-size : $GlobalLinkSize;
+        }
       }
       
       input[type=submit] {
         border : none;
-        height : 30px;
-        width : 130px;
+        height : 23px;
+        width : 110px;
         padding-left : 6%;
         background : transparent;
         text-align : left;
@@ -1137,7 +1306,7 @@ Author URI: http://www.design-culture.co.uk/
     .send-arrow {
       position : relative;
       display : inline-block;
-      background : $Orange url(img/sprite.png) no-repeat 20px -72px;
+      background : $Orange url(img/sprite.png) no-repeat 0px -74px;
         &:hover {
           background-color : $LightBlack;
           .buttonBG {
@@ -1145,8 +1314,8 @@ Author URI: http://www.design-culture.co.uk/
           }
         } 
         .buttonBG {
-            height : 30px;
-            width : 100px;
+            height : 25px;
+            width : 80px;
             position : absolute;
             top : 0;
             z-index : 0;

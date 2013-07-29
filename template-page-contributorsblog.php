@@ -2,7 +2,7 @@
 /**
  * The news page template file.
  *
- * Template Name: Contact
+ * Template Name: Contributors blog
  *
  */
 get_header();

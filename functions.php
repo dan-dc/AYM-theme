@@ -5,9 +5,27 @@
 
 		if ( is_page_template( 'template-page-news.php' ) )
 		$classes[] = 'news';
+		
+		else if ( is_page_template( 'template-page-contributorsblog.php' ) )
+		$classes[] = 'contributors-blog';
+		
+		else if ( is_page_template( 'template-page-musiciansstories.php' ) )
+		$classes[] = 'musicians-stories';
+		
+		else if ( is_page_template( 'template-page-aymangels.php' ) )
+		$classes[] = 'aym-angels';
 
-		else if ( is_archive( 'gallery' ) ) 
+		else if ( is_archive() and !(get_post_type() == 'gallery') ) 
+		$classes[] = 'news';
+		
+		else if ( is_page_template( 'template-page-people.php' ) )
+		$classes[] = 'people';
+		
+		else if ( get_post_type() == 'gallery' ) 
 		$classes[] = 'gallery';
+		
+//		else if ( is_post_type_archive( 'contributors_blog' ) )
+//		$classes[] = 'contributors-blog';
 
 		return $classes;
 	}
@@ -19,16 +37,23 @@
 	}
 	
 //	declare widget zones
-	/*
+	
     if (function_exists('register_sidebar')) {
-	register_sidebar(array(
-			'name' => 'widgetName',
-			'id'   => 'widgetName',
-			'before_widget' => '<div class="widgetName"',
-			'after_widget'  => '</div>',
-    	));
+    
+        register_sidebar(array(
+            'name' => 'Right Sidebar',
+            'id'   => 'right_sidebar',
+            'before_widget' => '<section class="widget">',
+            'after_widget'  => '</section>',
+        ));
+        
+        register_sidebar(array(
+            'name' => 'Left Info',
+            'id'   => 'left_info',
+            'before_widget' => '<div id="LeftInfo">',
+            'after_widget'  => '</div>',
+        ));
 	}
-	*/
 	
 //	admin footer override
 	function wp_admin_dashboard_custom_footer_text( $default_text ) {
@@ -44,6 +69,7 @@
 		$words = explode(' ', $string);
 		return implode(' ', array_slice($words, 0, $word_limit));
 	}
+	
 
 /*	add read more links
 	function read_more_link($output) {
@@ -62,8 +88,9 @@
 	//add_image_size( name, width, height, crop=boolean );
 	add_image_size( 'slider', 1020, 365, true );
 	add_image_size( 'hero', 500, 200, true );
-	add_image_size( 'gallery-thumb', 220, 110, true );
-	add_image_size( 'gallery-large', 1020, 600, true );
+	add_image_size( 'gallery-thumb', 220, 146, true );
+	add_image_size( 'gallery-large', 980, 600, true );
+	add_image_size( 'people-thumb', 146, 195, true );
 	add_image_size( 'promo', 190, 110, true );
 	add_image_size( 'news-thumb', 150, 100, true );
 	add_image_size( 'footer-links', 130, 87, true );
@@ -72,8 +99,7 @@
 //	SASS/SCSS Stylesheet Definition
     function generate_css() {
         if(function_exists('wpsass_define_stylesheet')) {
-            wpsass_define_stylesheet("style.scss");
-            wpsass_define_stylesheet("style.css");
+            wpsass_define_stylesheet("style.scss", true);
         }
     }
     add_action( 'after_setup_theme', 'generate_css' );

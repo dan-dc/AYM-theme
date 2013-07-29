@@ -2,7 +2,7 @@
 /**
  * The news page template file.
  *
- * Template Name: Contact
+ * Template Name: People
  *
  */
 get_header();
@@ -10,6 +10,7 @@ get_header();
 			
 <?php get_template_part( "template-core-masthead" ); ?>
 
+	        
 	        <section id="content" class="clearfix">
                 <?php get_template_part( 'content' ); ?>
 	        </section><!-- /content -->

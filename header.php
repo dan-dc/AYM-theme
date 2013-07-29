@@ -29,18 +29,19 @@
         <script src="<?php bloginfo("template_url"); ?>/js/core/modernizr-2.6.2.min.js"></script>
 
         <title><?php
+            
             // Print the <title> tag based on what is being viewed.
             global $page, $paged;
-			
-            wp_title( '|', true, 'right' );
 
             // Add the blog description for the home/front page.
-            $site_description = get_bloginfo( 'description', 'display' );
+            $site_description = get_bloginfo( 'name', 'display' );
             if ( $site_description )
-                echo "$site_description | ";
+                echo ($site_description . " | ");
 				
             // Add the blog name.
-            bloginfo( 'name' );
+            bloginfo( 'description' );
+            
+            wp_title( '|', true, 'left' );
         
             ?></title>
 

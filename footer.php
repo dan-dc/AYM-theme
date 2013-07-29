@@ -5,93 +5,21 @@
 		<footer id="footer">
         	<nav>
         		<h6 class="hide">site map</h6>
-                <?php wp_nav_menu( array( 'menu' => 'main menu' ) ); ?>
-                
-                <? 
-				/*
-        		<ul id="sitemap" class="clearfix">
-	        		<li>
-	        			<a href="">About us</a>
-	        			<ul>
-	        				<li><a href="">People</a></li>
-	        				<li><a href="">Partners</a></li>
-	        				<li><a href="">Advocacy</a></li>
-	        				<li><a href="">Our heritage</a></li>
-	        			</ul>
-	        		</li>
-	        		<li>
-	        			<a href="">How we help</a>
-	        			<ul>
-	        				<li><a href="">Individual tailored support</a></li>
-	        				<li><a href="">Performing live</a></li>
-	        				<li><a href="">Case studies</a></li>
-	        				<li><a href="">Resources</a></li>
-	        				<li><a href="">Need extra help?</a></li>
-	        			</ul>
-	        		</li>
-	        		<li>
-	        			<a href="">Our programmes</a>
-	        			<ul>
-	        				<li><a href="">Awards</a></li>
-	        				<li><a href="">Furthering talent</a></li>
-	        				<li><a href="">Music teachers’ support</a></li>
-	        				<li><a href="">Musical progressions</a></li>
-	        			</ul>
-	        		</li>
-	        		<li>
-	        			<a href="">Supporting AYM</a>
-	        			<ul>
-	        				<li><a href="">Appeals</a></li>
-	        				<li><a href="">Sponsor an award</a></li>
-	        				<li><a href="">AYM supporters</a></li>
-	        				<li><a href="">AYM alumni</a></li>
-	        				<li><a href="">AYM community</a></li>
-	        				<li><a href="">AYM projects</a></li>
-	        				<li><a href="">Donate now</a></li>
-	        			</ul>
-	        		</li>
-	        		<li>
-	        			<a href="">News &amp; Events</a>
-	        			<ul>
-	        				<li><a href="">News</a></li>
-	        				<li><a href="">Events calendar</a></li>
-	        				<li><a href="">Contributors blog</a></li>
-	        				<li><a href="">Media</a></li>
-	        			</ul>
-	        		</li>
-	        		<li>
-	        			<a href="">Young Musicians</a>
-	        			<ul>
-	        				<li><a href="">Gallery</a></li>
-	        			</ul>
-	        			<ul>
-	        				<li><a href="">AYM Angels</a></li>
-	        			</ul>
-	        			<ul>
-	        				<li><a href="">FAQs</a></li>
-	        				<li><a href="">Site Map</a></li>
-							<li><a href="">Privacy Policy</a></li>
-	        				<li><a href="">Terms &amp; Conditions</a></li>
-	        			</ul>
-	        		</li>
-        		</ul>
-				*/
-				?>
+                <?php wp_nav_menu( array( 'menu' => 'footer menu' ) ); ?>
 
         		<div class="right-column">
         			<p>
         				<strong>Contact us</strong><br/>
-        				T. 011 7904 9906<br/>
-        				E. <a href="">enquiries@a-y-m.org.uk</a>
+        				T. <?php if (get_field('telephone_number','options')) the_field('telephone_number','options'); else echo 'XXXXXXX'; ?><br/>
+        				E. <a href="<? if (get_field('email_address','options')) echo 'mailto:' . get_field('email_address','options'); ?>"><? if (get_field('email_address','options')) the_field('email_address','options'); else echo 'XXXXXXX'; ?><br/></a>
         			</p>
         			<p>
-        				<strong>Awards for Young Musicians</strong><br/>
-        				PO Box 2754<br/>
-						Bristol<br/>
-						BS4 9DA
+        				<strong><?php bloginfo('name'); ?></strong><br/>
+						<? if (get_field('address','options')) the_field('address','options'); else echo 'Please enter address in the site options tab'; ?>
 					</p>
         			<p>
-        				Charity 1070994<br/> Company 3602851
+        				Charity <?php if (get_field('charity_no','options')) the_field('charity_no','options'); else echo 'XXXXXXX'; ?><br/>
+                        Company <?php if (get_field('company_no','options')) the_field('company_no','options'); else echo 'XXXXXXX'; ?>
 					</p>
         		</div>
         	</nav>
@@ -109,9 +37,11 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php bloginfo("template_url"); ?>/js/core/jquery-1.10.1.min.js"><\/script>')</script>
         <link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/css/fancybox/jquery.fancybox.css">
-        <script src="<?php bloginfo("template_url"); ?>/js/jquery.fancybox.pack.js"></script>
-        <script src="<?php bloginfo("template_url"); ?>/js/plugins.js"></script>
         <script src="<?php bloginfo("template_url"); ?>/js/main.js"></script>
+        <script src="<?php bloginfo("template_url"); ?>/js/twitter/jquery.tweet.js"></script>
+        <script src="<?php bloginfo("template_url"); ?>/js/plugins.js"></script>
+        <script src="<?php bloginfo("template_url"); ?>/js/jquery.fancybox.pack.js"></script>
+<!--	    <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.cycle.all.min.js"></script>-->
 
 <!--	google analytics -->
         <script>

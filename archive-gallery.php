@@ -58,7 +58,10 @@ get_header(); ?>
                             $pc_tax[] = $term->slug;
                         }                                           
                         $pc_classes = join( " ", $pc_tax );
-                    } else {                   
+                    } 
+					
+					// is this needed?
+					else {                   
                         $tow_classes = "";
                     }
 			 ?>
@@ -69,7 +72,7 @@ get_header(); ?>
                             $image_thumb = wp_get_attachment_image_src(get_field('image'),'gallery-thumb');
                             $image_large = wp_get_attachment_image_src(get_field('image'),'gallery-large');
                             ?>
-                            <a href="<?php echo $image_large[0]; ?>" class="popUp" rel="gallery" title="<?php echo get_field('caption'); ?>">
+                            <a href="<?php echo $image_large[0]; ?>" class="popUp" rel="gallery<?php /* echo $pc_classes; */ ?>" title="<?php echo get_field('caption'); ?>">
                                 <?php 
                                     echo '<img src="' . $image_thumb[0] .'" alt="' . get_the_title() . '" width="220" height="146" />';
                                 ?>
@@ -94,10 +97,7 @@ get_header(); ?>
 </section><!--/#content-->
 
 <div class="sidebar-panel grey left">
-    <div id="LeftInfo">
-        <h4>Make a donation</h4>
-        <p>Your support will make a real difference to childrens lifes, find out how to make a donation <a href="#">here</a>.</p>
-    </div>
+    <?php if ( dynamic_sidebar('Left Info') ) : else : endif; ?>
 </div>
 
 <?php get_footer(); ?>
