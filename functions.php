@@ -20,6 +20,9 @@
 		
 		else if ( is_page_template( 'template-page-people.php' ) )
 		$classes[] = 'people';
+
+		else if ( is_page_template( 'template-page-donation.php' ) )
+		$classes[] = 'donation';
 		
 		else if ( get_post_type() == 'gallery' ) 
 		$classes[] = 'gallery';
@@ -94,6 +97,7 @@
 	add_image_size( 'promo', 190, 110, true );
 	add_image_size( 'news-thumb', 150, 100, true );
 	add_image_size( 'footer-links', 130, 87, true );
+	add_image_size( 'donation_logo', 170, 70, true );
 
 
 //	SASS/SCSS Stylesheet Definition
@@ -103,4 +107,22 @@
         }
     }
     add_action( 'after_setup_theme', 'generate_css' );
+	
+//	add file type filter in media library
+	function modify_post_mime_types( $post_mime_types ) {
+		// select the mime type, here: 'application/pdf'
+		// then we define an array with the label values
+		$post_mime_types['application/pdf'] = array(
+			__( 'PDFs' ), __( 'Manage PDFs' ), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' )
+		);
+		$post_mime_types['application/vnd.openxmlformats-officedocument.wordprocessingml.document'] = array(
+			__( 'DOCX' ), __( 'Manage DOCX' ), _n_noop( 'DOCX <span class="count">(%s)</span>', 'DOCX <span class="count">(%s)</span>' )
+		);
+		$post_mime_types['application/msword'] = array(
+			__( 'DOCs' ), __( 'Manage DOCs' ), _n_noop( 'DOCs <span class="count">(%s)</span>', 'DOCs <span class="count">(%s)</span>' )
+		);
+
+		return $post_mime_types;
+	}
+	add_filter( 'post_mime_types', 'modify_post_mime_types' );
 ?>

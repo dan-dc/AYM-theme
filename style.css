@@ -40,7 +40,9 @@ Author URI: http://www.design-culture.co.uk/
       ^4c PAGE
       ^4d NEWS
       ^4e GALLERY
+          ^4e1 Isotope filtering
       ^4f CONTACT
+      ^4g DONATE
 
   ^5  TEXT
 
@@ -818,7 +820,7 @@ html, body {
       font-weight: normal;
       margin: 0 0 20px 0; }
 
-/* Isotope Filtering */
+/* ^4e1 Isotope filtering */
 .isotope-item {
   z-index: 2; }
 
@@ -953,6 +955,35 @@ html, body {
   color: white;
   margin: 0; }
 
+/* ^4g DONATE */
+.donation #MainContent {
+  width: 730px; }
+
+#ways-to-donate {
+  border-top: 1px dotted #212121;
+  margin-top: 20px; }
+  #ways-to-donate .image {
+    width: 170px;
+    float: left; }
+  #ways-to-donate .text {
+    width: 540px;
+    float: right; }
+  #ways-to-donate .donate-wrap {
+    border-bottom: 1px dotted #212121;
+    padding: 10px 0;
+    position: relative; }
+  #ways-to-donate .readMore {
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    background: #ff6600 url(img/sprite.png) no-repeat -85px -76px; }
+    #ways-to-donate .readMore:hover {
+      background-color: #cccccc; }
+    #ways-to-donate .readMore span {
+      display: none; }
+
 /* ^5  TEXT
 *************************************************************************/
 h1, h2, h3, h4, h5, h6 {
@@ -986,6 +1017,9 @@ h6 {
   color: white;
   font-size: 0.6em; }
 
+em {
+  font-weight: 600; }
+
 #content li, p {
   font-size: 0.8em; }
 
@@ -997,6 +1031,9 @@ p a {
 #content li a:hover {
   color: #ff6600; }
 
+.sidebar p {
+  color: white;
+  font-size: 0.7em; }
 .sidebar ul {
   margin: 0 0 20px 0;
   padding: 0 0 20px 0;
